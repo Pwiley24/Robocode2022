@@ -5,7 +5,8 @@ import robocode.*;
 // API help : https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html
 
 /**
- * RobotP - a robot by (your name here)
+ * RobotP - a robot by Paige Wiley
+ * This robot will be controlled by the user.
  */
 public class RobotP extends Robot
 {
