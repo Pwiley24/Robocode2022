@@ -1,6 +1,6 @@
 package robot_p;
-import robocode.*;
-//import java.awt.Color;
+import robocode.AdvancedRobot;
+import java.awt.Color;
 
 // API help : https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html
 
@@ -13,6 +13,25 @@ public class RobotP extends Robot
 	/**
 	 * run: RobotP's default behavior
 	 */
+	 
+	public void onKeyPressed (KeyEvent e){
+		if(e.getKeyCode() == 32) {//If the space bar is pressed fire the bullet
+			fireBullet(//assign a power level);
+	}
+	
+	/*
+	 * Will determine the direction the tank will move in 
+	 * and where the gun is pointed
+	 */
+	public void onMousedMoved (KeyEvent e){
+		int aimX;
+		int aimY;
+		//Redirect where the gun is pointed 
+		aimX = e.getX();
+		aimY = e.getY();
+		turnGunLeft(aimX);
+	}
+	
 	public void run() {
 		// Initialization of the robot should be put here
 
@@ -20,15 +39,14 @@ public class RobotP extends Robot
 		// and the next line:
 
 		// setColors(Color.red,Color.blue,Color.green); // body,gun,radar
+		
 
 		// Robot main loops
 		
 		while(true) {
-			// Replace the next 4 lines with any behavior you would like
-			ahead(100);
-			turnGunRight(360);
-			back(100);
-			turnGunRight(360);
+			// 
+			
+			
 		}
 	}
 
@@ -54,5 +72,9 @@ public class RobotP extends Robot
 	public void onHitWall(HitWallEvent e) {
 		// Replace the next line with any behavior you would like
 		back(20);
-	}	
+	}
+	
+	
+	
+	
 }
