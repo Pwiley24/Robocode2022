@@ -9,7 +9,6 @@ import java.awt.Color;
  * A Robot that zig zags across the field.
  * Scans the battle field and predicts where the robots are heading
  * Fires in those directions
- * If close enough to another robot, ram.
  */
 
 
@@ -17,7 +16,7 @@ public class RobotP extends AdvancedRobot
 {
 
 
-	
+
 	/**
 	 * run: RobotP's default behavior
 	 */
@@ -25,6 +24,7 @@ public class RobotP extends AdvancedRobot
 		// Initialization of the robot should be put here
 		setAdjustRadarForGunTurn(true);
 		setAdjustGunForRobotTurn(true);
+		setAdjustRadarForGunTurn(false);
 		// After trying out your robot, try uncommenting the import at the top,
 		// and the next line:
 
@@ -34,21 +34,27 @@ public class RobotP extends AdvancedRobot
 		
 		while(true) {
 			// Replace the next 4 lines with any behavior you would like
-			setTurnRadarLeft(5);
 			setTurnGunLeft(5);
 			setAhead(100);
 			scan();
 			execute();
 			
-			while(getDistanceRemaining() > 0 && getGunTurnRemaining() > 0 && getRadarTurnRemaining() > 0){
+		
+			
+			
+			while(getDistanceRemaining() > 0 && getGunTurnRemaining() > 0){
 				execute();
 			}
-
+	
 				
 		}
 	}
 	
+	public void onBulletHit(BulletHitEvent e){
+		setFire(2);
+	}
 	
+
 
 	/**
 	 * onScannedRobot: What to do when you see another robot
@@ -56,22 +62,22 @@ public class RobotP extends AdvancedRobot
 	public void onScannedRobot(ScannedRobotEvent e) {
 		// Replace the next line with any behavior you would like
 		
-		fire(1);
+		fire(3);
+		fire(2);
 		
-		turnGunLeft(10);
-		turnRadarLeft(10);
-		fire(1);
+		setTurnGunLeft(10);
+		setFire(2);
+		setFire(2);
 		
-		turnGunRight(20);
-		turnRadarRight(20);
-		fire(1);
+		setTurnGunRight(20);
+		setFire(2);
+		setFire(2);
 		
 
 	}
 	
 	public void onRobotHit(HitRobotEvent e){
-		back(10);
-		turnLeft(50);
+		
 	}
 
 	/**
@@ -79,7 +85,7 @@ public class RobotP extends AdvancedRobot
 	 */
 	public void onHitByBullet(HitByBulletEvent e) {
 		// Replace the next line with any behavior you would like
-		
+		turnLeft(45);
 	}
 	
 	/**
