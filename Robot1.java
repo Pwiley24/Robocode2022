@@ -29,7 +29,7 @@ public class Robot1 extends Robot
 			scan();
 			
 			turnRight(30);
-			back(100);
+			ahead(100);
 		//	turnGunRight(360);
 		}
 	}
@@ -39,12 +39,13 @@ public class Robot1 extends Robot
 	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
 		// Replace the next line with any behavior you would like
-		//fire(2);
-		//turnRight(4);
+	
 		fireBullet(4);
 		fire(.3);
-		
-		
+		turnLeft(50);
+		scan();
+		back(40);
+		scan();
 		
 	}
 
@@ -54,25 +55,9 @@ public class Robot1 extends Robot
 	public void onHitByBullet(HitByBulletEvent e) {
 		// Replace the next line with any behavior you would like
 		turnRight(10);
-		fire(.1);
-		turnRight(10);
-		fire(.1);
-		turnRight(10);
-		fire(.1);
-		turnRight(10);
-		fire(.1);
-		turnRight(10);
-		fire(.1);
-		turnRight(10);
-		fire(.1);
-		turnRight(10);
-		fire(.1);
-		turnRight(10);
-		fire(.1);
-		turnRight(10);
-		fire(.1);
-		turnRight(40);
 		scan();
+		ahead(175);
+		turnRight(45);
 	}
 	
 	/**
@@ -84,6 +69,7 @@ public class Robot1 extends Robot
 		back(170);
 		turnLeft(70);
 		scan();
+		turnGunRight(360);
 		ahead(130);
 		turnLeft(180);
 		scan();
@@ -94,6 +80,12 @@ public class Robot1 extends Robot
 		scan();
 	}
 	public void onHitRobot(HitRobotEvent event){
-		scan();
+	fire(.5);
+	back(70);
+		
+	scan();
+		
 	}
+	
+
 }
