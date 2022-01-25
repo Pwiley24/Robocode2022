@@ -7,7 +7,7 @@ import java.awt.Color;
 /**
  * Robot1 - a robot by (your name here)
  */
-public class Robot1 extends Robot
+public class Robot1 extends TeamRobot
 {
 	/**
 	 * run: Robot1's default behavior
