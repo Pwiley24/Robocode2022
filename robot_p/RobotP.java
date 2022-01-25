@@ -12,7 +12,7 @@ import java.awt.Color;
  */
 
 
-public class RobotP extends AdvancedRobot
+public class RobotP extends TeamRobot
 {
 
 
