@@ -30,6 +30,7 @@ public class Robot1 extends TeamRobot
 			
 			turnRight(30);
 			ahead(100);
+
 		//	turnGunRight(360);
 		}
 	}
@@ -39,13 +40,24 @@ public class Robot1 extends TeamRobot
 	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
 		// Replace the next line with any behavior you would like
-	
-		fireBullet(4);
-		fire(.3);
-		turnLeft(50);
-		scan();
-		back(40);
-		scan();
+		boolean isTeam = false;
+		 if (isTeammate(e.getName()) ){
+           return;
+		   
+   	    }
+	  
+		if (isTeammate(e.getName()) == false){
+			fireBullet(2);
+			turnRight(15);
+			back(40);
+			fireBullet(2);
+			
+			back(80);
+			fireBullet(.1);
+			scan();
+		}
+		
+		ahead(10);
 		
 	}
 
@@ -57,6 +69,7 @@ public class Robot1 extends TeamRobot
 		turnRight(10);
 		scan();
 		ahead(175);
+		scan();
 		turnRight(45);
 	}
 	
@@ -69,9 +82,9 @@ public class Robot1 extends TeamRobot
 		back(170);
 		turnLeft(70);
 		scan();
-		turnGunRight(360);
+		scan();
 		ahead(130);
-		turnLeft(180);
+		turnLeft(70);
 		scan();
 	}	
 	public void onBulletMissed(BulletMissedEvent event){
@@ -80,7 +93,7 @@ public class Robot1 extends TeamRobot
 		scan();
 	}
 	public void onHitRobot(HitRobotEvent event){
-	fire(.5);
+	//fire(.5);
 	back(70);
 		
 	scan();
