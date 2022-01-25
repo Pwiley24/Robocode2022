@@ -47,7 +47,7 @@ public class Robot1 extends TeamRobot
    	    }
 	  
 		if (isTeammate(e.getName()) == false){
-			fireBullet(2);
+			fireBullet(3);
 			turnRight(15);
 			back(40);
 			fireBullet(2);
