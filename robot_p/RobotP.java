@@ -61,7 +61,12 @@ public class RobotP extends TeamRobot
 	 * onScannedRobot: What to do when you see another robot
 	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
-		if(isTeammate(e.getName() == false) {//if the robot scanned is not on my team
+		Boolean isTeam = false;
+
+		if(isTeammate(e.getName())) {
+			return;//returns true if teammate, false if not
+		}
+		if(isTeammate(e.getName()) == false){
 			fire(3);
 			fire(2);
 			
