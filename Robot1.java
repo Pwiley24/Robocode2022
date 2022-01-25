@@ -18,7 +18,12 @@ public class Robot1 extends TeamRobot
 		// After trying out your robot, try uncommenting the import at the top,
 		// and the next line:
 
-		setColors(Color.red,Color.blue,Color.green); // body,gun,radar
+		//setColors(Color.RED,Color.blue,Color.RED); // body,gun,radar
+		setGunColor( Color.BLACK);
+		setRadarColor(Color.BLUE);
+		setBodyColor(new Color(67,012,118));
+		setBulletColor(Color.BLACK);
+		
 
 		// Robot main loop
 		while(true) {
