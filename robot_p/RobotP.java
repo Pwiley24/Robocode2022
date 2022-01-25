@@ -25,20 +25,21 @@ public class RobotP extends TeamRobot
 		setAdjustRadarForGunTurn(true);
 		setAdjustGunForRobotTurn(true);
 		setAdjustRadarForGunTurn(false);
-		// After trying out your robot, try uncommenting the import at the top,
-		// and the next line:
 
 		setColors(Color.white,Color.blue,Color.green); // body,gun,radar
 
 		// Robot main loops
-		
 		while(true) {
-			// Replace the next 4 lines with any behavior you would like
 			setTurnGunLeft(5);
 			setAhead(100);
 			scan();
 			execute();
 			
+/*
+			if(getX() >= 0 || getX() <= battlefield_width){
+				turnLeft(45);
+			}
+			*/
 		
 			
 			
@@ -60,19 +61,18 @@ public class RobotP extends TeamRobot
 	 * onScannedRobot: What to do when you see another robot
 	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
-		// Replace the next line with any behavior you would like
-		
-		fire(3);
-		fire(2);
-		
-		setTurnGunLeft(10);
-		setFire(2);
-		setFire(2);
-		
-		setTurnGunRight(20);
-		setFire(2);
-		setFire(2);
-		
+		if(isTeammate(e.getName() == false) {//if the robot scanned is not on my team
+			fire(3);
+			fire(2);
+			
+			setTurnGunLeft(10);
+			setFire(2);
+			setFire(2);
+			
+			setTurnGunRight(20);
+			setFire(2);
+			setFire(2);
+		}
 
 	}
 	
