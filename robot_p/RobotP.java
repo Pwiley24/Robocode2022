@@ -26,7 +26,8 @@ public class RobotP extends TeamRobot
 		setAdjustGunForRobotTurn(true);
 		setAdjustRadarForGunTurn(false);
 
-		setColors(Color.white,Color.blue,Color.green); // body,gun,radar
+		setColors(new Color(67,12,118),Color.black, Color.blue); // body,gun,radar
+		setBulletColor(Color.black);
 
 		// Robot main loops
 		while(true) {
@@ -35,15 +36,14 @@ public class RobotP extends TeamRobot
 			scan();
 			execute();
 			
-/*
-			if(getX() >= 0 || getX() <= battlefield_width){
-				turnLeft(45);
-			}
-			*/
+
+		
+			
 		
 			
 			
 			while(getDistanceRemaining() > 0 && getGunTurnRemaining() > 0){
+				if(getX() <= 
 				execute();
 			}
 	
@@ -65,7 +65,7 @@ public class RobotP extends TeamRobot
 		if(isTeammate(e.getName())) {
 			return;//returns true if teammate, false if not
 		}
-		if(isTeammate(e.getName()) == false){
+		if(isTeammate(e.getName()) == false){//if they are not on my team 
 			fire(3);
 			fire(2);
 			
@@ -99,4 +99,5 @@ public class RobotP extends TeamRobot
 		// Replace the next line with any behavior you would like
 		turnLeft(45);
 	}	
+}
 }
