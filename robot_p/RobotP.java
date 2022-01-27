@@ -28,29 +28,41 @@ public class RobotP extends TeamRobot
 
 		setColors(new Color(67,12,118),Color.black, Color.blue); // body,gun,radar
 		setBulletColor(Color.black);
-
+		double angleA = 0;
+		double sideA = 0;
 		// Robot main loops
 		while(true) {
 			setTurnGunLeft(5);
-			setAhead(100);
+			//determine the side of the field the robot is on:
+			if (getX() >= getWidth()/2){ //right side of field
+				sideA = (getWidth()-5) - getX();
+				if(getY() >= getHeight()/2) { //top half of field
+					angleA = Math.toRadians(90 - getHeading());
+				} else {//bottom half
+					angleA = Math.toRadians(getHeading() - 90);
+				}
+			}else{//left side of field
+				sideA = getX();
+				if(getY() >= getHeight()/2) { //top half of field
+					angleA = Math.toRadians(90 - getHeading());
+				} else { //bottom half
+					angleA = Math.toRadians(getHeading() - 90);
+				}
+			}
+			//calculate the distance to go:
+			double distance = Math.acos(angleA) / sideA;
+			setAhead(distance);
 			scan();
 			execute();
-			
-
-		
-			
-		
-			
-			
-			while(getDistanceRemaining() > 0 && getGunTurnRemaining() > 0){
-				if(getX() <= 
-				execute();
-			}
-	
 				
+			while(getDistanceRemaining() > 0 && getGunTurnRemaining() > 0){ 
+				execute();
+			}	
 		}
 	}
 	
+
+
 	public void onBulletHit(BulletHitEvent e){
 		setFire(2);
 	}
@@ -99,5 +111,5 @@ public class RobotP extends TeamRobot
 		// Replace the next line with any behavior you would like
 		turnLeft(45);
 	}	
-}
+
 }
