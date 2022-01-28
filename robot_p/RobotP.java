@@ -30,28 +30,38 @@ public class RobotP extends TeamRobot
 		setBulletColor(Color.black);
 		double angleA = 0;
 		double sideA = 0;
+		double y = 0;
 		// Robot main loops
 		while(true) {
 			setTurnGunLeft(5);
+			
 			//determine the side of the field the robot is on:
-			if (getX() >= getWidth()/2){ //right side of field
-				sideA = (getWidth()-5) - getX();
-				if(getY() >= getHeight()/2) { //top half of field
-					angleA = Math.toRadians(90 - getHeading());
+			
+			if (getX() >= getBattleFieldWidth()/2){ //right side of field
+				sideA = (getBattleFieldWidth()-100) - getX();
+				if(getY() >= getBattleFieldHeight()/2) { //top half of field
+					angleA = 90 - getHeading();
 				} else {//bottom half
-					angleA = Math.toRadians(getHeading() - 90);
+					y = 180 - getHeading();
+					angleA = getHeading() - y + 90;
 				}
 			}else{//left side of field
-				sideA = getX();
-				if(getY() >= getHeight()/2) { //top half of field
-					angleA = Math.toRadians(90 - getHeading());
+				sideA = getX() - 100;
+				if(getY() >= getBattleFieldHeight()/2) { //top half of field
+					y = 360 - getHeading();
+					angleA = 90 - y;
 				} else { //bottom half
-					angleA = Math.toRadians(getHeading() - 90);
+					angleA = getHeading() - 90;
 				}
 			}
 			//calculate the distance to go:
-			double distance = Math.acos(angleA) / sideA;
-			setAhead(distance);
+			double distance = Math.cos(angleA) * sideA;
+			if(distance <= 0){
+				turn(45);
+				setAhead(10);
+			}else {
+				setAhead(distance);
+			}
 			scan();
 			execute();
 				
