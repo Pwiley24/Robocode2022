@@ -24,8 +24,10 @@ public class RobotP extends TeamRobot
 		setAdjustGunForRobotTurn(true);
 		setAdjustRadarForGunTurn(false);
 		//colors:
-		setColors(new Color(67,12,118),Color.black, Color.blue); //body,gun,radar color
-		setBulletColor(Color.black); //bullet color
+		setGunColor(Color.BLACK);
+		setRadarColor(Color.BLUE);
+		setBodyColor(new Color(67,012,118));
+		setBulletColor(Color.BLACK);
 		
 		/*
 		 * Varibales for the commented out code below
