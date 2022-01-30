@@ -15,9 +15,7 @@ import java.awt.Color;
 public class RobotP extends TeamRobot
 {
 
-
-
-	/**
+	/*
 	 * run: RobotP's default behavior
 	 */
 	public void run() {
@@ -25,18 +23,29 @@ public class RobotP extends TeamRobot
 		setAdjustRadarForGunTurn(true);
 		setAdjustGunForRobotTurn(true);
 		setAdjustRadarForGunTurn(false);
-
-		setColors(new Color(67,12,118),Color.black, Color.blue); // body,gun,radar
-		setBulletColor(Color.black);
+		//colors:
+		setColors(new Color(67,12,118),Color.black, Color.blue); //body,gun,radar color
+		setBulletColor(Color.black); //bullet color
+		
+		/*
+		 * Varibales for the commented out code below
+		 
 		double angleA = 0;
 		double sideA = 0;
 		double y = 0;
+		*/
+		
 		// Robot main loops
 		while(true) {
 			setTurnGunLeft(5);
 			
+			/*
+			 * not enough time to get this code to work.
+			 * was supposed to calculate the distance till the 
+			 * robot reaches the edge of the battle field
+			 * then turns before it takes damage.
+			 
 			//determine the side of the field the robot is on:
-			
 			if (getX() >= getBattleFieldWidth()/2){ //right side of field
 				sideA = (getBattleFieldWidth()-100) - getX();
 				if(getY() >= getBattleFieldHeight()/2) { //top half of field
@@ -62,6 +71,9 @@ public class RobotP extends TeamRobot
 			}else {
 				setAhead(distance);
 			}
+			*/
+			
+			setAhead(100);
 			scan();
 			execute();
 				
@@ -79,7 +91,7 @@ public class RobotP extends TeamRobot
 	
 
 
-	/**
+	/*
 	 * onScannedRobot: What to do when you see another robot
 	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
@@ -106,19 +118,17 @@ public class RobotP extends TeamRobot
 		
 	}
 
-	/**
+	/*
 	 * onHitByBullet: What to do when you're hit by a bullet
 	 */
 	public void onHitByBullet(HitByBulletEvent e) {
-		// Replace the next line with any behavior you would like
 		turnLeft(45);
 	}
 	
-	/**
+	/*
 	 * onHitWall: What to do when you hit a wall
 	 */
 	public void onHitWall(HitWallEvent e) {
-		// Replace the next line with any behavior you would like
 		turnLeft(45);
 	}	
 
